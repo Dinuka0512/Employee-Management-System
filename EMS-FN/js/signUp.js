@@ -17,6 +17,20 @@ function SignIn(){
         method : "POST",
         contentType : "application/json",
         data : JSON.stringify(user),
+        success: function (response) {
+            if(response.status === "success"){
+                alert("Hey " + user.name + ", You have account Created Successfully..!");
+                clearText();
+                //NOW NEED TO GO TO THE SIGNING PAGE
+                window.location.href = "../pages/signin.html";
+            }else{
+                alert("Something went Wrong...");
+            }
+        },
+
+        error:function (xhr) {
+            alert("Server Error!!");
+        }
     });
 }
 

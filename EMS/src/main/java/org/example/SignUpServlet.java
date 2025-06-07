@@ -15,6 +15,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Map;
 import java.util.UUID;
 
 @WebServlet("/api/v1/signup")
@@ -42,10 +43,22 @@ public class SignUpServlet extends HttpServlet {
             int i = statement.executeUpdate();
             PrintWriter out=resp.getWriter();
             resp.setContentType("application/json");
-            if(i==1){
-                resp.setStatus(HttpServletResponse.SC_OK);
+            if(i>0){
+                System.out.println("SEND MESSAGE");
+                resp.setContentType("application/json");
+                resp.setStatus(HttpServletResponse.SC_ACCEPTED);
+                mapper.writeValue(out, Map.of(
+                        "code","201",
+                        "status","success",
+                        "message","User signed up successfully"
+                ));
             }else {
                 resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                mapper.writeValue(out, Map.of(
+                        "code", "400",
+                        "status", "error",
+                        "message", "Bad Request"
+                ));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

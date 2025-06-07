@@ -2,7 +2,7 @@ create database ems;
 use ems;
 
 create table user(
-    id VARCHAR(255),
+    id VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255),
     address VARCHAR(255),
     email VARCHAR(255),

@@ -1,0 +1,21 @@
+body{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    background-image: url("../assets/Images/bgT.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.container{
+    max-width: 500px;
+    height: fit-content;
+
+    background-color: rgb(224, 224, 224);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
