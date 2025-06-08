@@ -1,10 +1,16 @@
-/**
- * --------------------------------------------
- * Author: Heshan Dinuka Lakmal
- * GitHub: https://github.com/Dinuka0512
- * --------------------------------------------
- * Created: 6/8/2025$ 9:48 AM$
- * Project: EMS-FN$
- * --------------------------------------------
- **/
+main{
+    width: 100vw;
+    height: 100vh;
 
+    background-image: url("../assets/Images/bgdsh.jpg");
+    background-position: bottom;
+    background-size: cover;
+}
+
+#EMS{
+    font-weight: bold;
+}
+
+#btnLogOut{
+    width: fit-content;
+}

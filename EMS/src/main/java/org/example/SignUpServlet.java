@@ -29,8 +29,6 @@ public class SignUpServlet extends HttpServlet {
 
             ObjectMapper mapper = new ObjectMapper();
             UserDto userDto = mapper.readValue(req.getInputStream(), UserDto.class);
-            System.out.println(userDto.getPassword());
-
 
             Connection connection = basicDataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement("INSERT INTO user VALUE(?,?,?,?,?)");
@@ -43,8 +41,8 @@ public class SignUpServlet extends HttpServlet {
             int i = statement.executeUpdate();
             PrintWriter out=resp.getWriter();
             resp.setContentType("application/json");
+
             if(i>0){
-                System.out.println("SEND MESSAGE");
                 resp.setContentType("application/json");
                 resp.setStatus(HttpServletResponse.SC_ACCEPTED);
                 mapper.writeValue(out, Map.of(
