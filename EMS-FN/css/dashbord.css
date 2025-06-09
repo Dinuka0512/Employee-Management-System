@@ -1,6 +1,6 @@
 main{
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
 
     background-image: url("../assets/Images/bgdsh.jpg");
     background-position: bottom;
