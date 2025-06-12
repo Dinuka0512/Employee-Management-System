@@ -15,4 +15,5 @@ public class EmployeeDto {
     private String address;
     private String email;
     private String contact;
+    private byte[] image;
 }

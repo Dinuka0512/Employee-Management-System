@@ -9,8 +9,8 @@ function securityOption(){
 //BUTTONS
 let logOut = $("#btnLogOut");
 let btnSave = $("#btnSave");
-let btnDelete = $("#btnUpdate");
-let btnUpdate = $("#btnDelete");
+let btnDelete = $("#btnDelete");
+let btnUpdate = $("#btnUpdate");
 let btnReset = $("#btnReset");
 
 //TEXT FIELDS
@@ -37,12 +37,20 @@ btnSave.on('click', function (){
         "contact" : txtContact.val()
     }
 
+    //IMAGES
+    let image = $("#imageFile")[0].files[0];
+
+    let formData= new FormData();
+    formData.append("employee", new Blob([JSON.stringify(employee)], { type: "application/json" }));
+    formData.append("image", image);
+
     //THERE NEED SEND THE SERVER REQUEST
     $.ajax({
         method: "POST",
         url : "http://localhost:8080/EMS_Web_exploded/employee",
-        contentType: "application/json",
-        data : JSON.stringify(employee),
+        contentType: false,
+        processData: false,
+        data : formData,
         success : function (response){
             console.log(response);
             alert(response.message);
@@ -87,6 +95,7 @@ function loadTable(){
                         <td> ${employee.address} </td>
                         <td> ${employee.email} </td>
                         <td> ${employee.contact} </td>
+                        <td> <img src="data:image/png;base64,${employee.image}" alt="Employee" width="50px"> </td>
                     </tr>
                 `;
 

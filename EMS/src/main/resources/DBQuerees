@@ -14,5 +14,6 @@ create table employee(
     name varchar(255),
     address varchar(255),
     email varchar(255),
-    contact varchar(255)
+    contact varchar(255),
+    image LONGBLOB
 );
